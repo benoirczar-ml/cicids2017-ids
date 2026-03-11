@@ -1,0 +1,18 @@
+project:
+  name: cicids2017-ids
+  goal: IDS attack classification + drift monitoring
+
+data:
+  raw_parquet_dir: /srv/work/datasets/cicids2017/parquet/hf-bvk
+  processed_parquet: /srv/work/datasets/cicids2017/processed/cicids2017_clean.parquet
+  label_col: Label
+  label_bin_col: Label_Binary
+
+split:
+  strategy: stratified_random
+  test_size: 0.2
+  val_size: 0.1
+  attack_holdout: []
+
+notes:
+  leakage_cols_dropped: ["IP", "Port", "Timestamp", "Flow ID"]

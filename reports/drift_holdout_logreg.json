@@ -1,0 +1,47 @@
+[
+  {
+    "holdout_attack": "Botnet",
+    "holdout_rows": 736,
+    "test_rows": 1472,
+    "train_rows": 300000,
+    "tn": 731,
+    "fp": 5,
+    "fn": 736,
+    "tp": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.8146488070487976,
+    "pr_auc": 0.7068242580794002
+  },
+  {
+    "holdout_attack": "Web Attack - Brute Force",
+    "holdout_rows": 73,
+    "test_rows": 146,
+    "train_rows": 300000,
+    "tn": 73,
+    "fp": 0,
+    "fn": 73,
+    "tp": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.039407018572092056,
+    "pr_auc": 0.316994639386848
+  },
+  {
+    "holdout_attack": "Infiltration - Portscan",
+    "holdout_rows": 50000,
+    "test_rows": 100000,
+    "train_rows": 300000,
+    "tn": 49772,
+    "fp": 228,
+    "fn": 22221,
+    "tp": 27779,
+    "precision": 0.9918591780625917,
+    "recall": 0.555579999999989,
+    "f1": 0.7122181338097271,
+    "roc_auc": 0.8993892073631287,
+    "pr_auc": 0.8994443067319311
+  }
+]
