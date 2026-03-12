@@ -72,6 +72,14 @@ Fusion (AE + XGB, benign FPR thresholds):
 - Portscan: recall ≈0.982 at FPR 1e‑3 (precision ~0.9991).
 - Botnet: recall ≈0.023 at FPR 1e‑3 (still poor).
 
+Deep SVDD (benign‑only):
+- Botnet recall ~0.033 at FPR 1e‑3 (still poor).
+- WebBF/Portscan still near‑zero recall at strict FPR.
+
+Notes:
+- cuML IsolationForest not available in this build.
+- cuML kNN failed due to CUDA NVRTC compile errors (fp8 headers). We need a CUDA/toolkit fix to use it.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)
