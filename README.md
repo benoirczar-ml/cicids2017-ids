@@ -52,6 +52,10 @@ Benign‑only thresholding (no attack leakage, thresholds set by benign FPR):
 - Infiltration Portscan: recall 0.983 at FPR 1e‑3 (precision ~0.9992)
 - Botnet: recall still low at FPR 1e‑3 (drift in score scale)
 
+Feature stability lab:
+- Computed benign vs attack z‑shift per feature (report saved).
+- A “stable subset” of 17 shared‑shift features **hurt** drift detection (Botnet/WebBF recall dropped to 0). We do not keep this subset.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)

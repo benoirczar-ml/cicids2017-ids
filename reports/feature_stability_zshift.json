@@ -1,0 +1,263 @@
+[
+  {
+    "attack": "Botnet",
+    "benign_rows": 300000,
+    "attack_rows": 736,
+    "top_shifted_features": [
+      {
+        "feature": "Fwd Bytes/Bulk Avg",
+        "zshift": 4.372845762041711
+      },
+      {
+        "feature": "Fwd Packet Length Mean",
+        "zshift": 2.123215607741074
+      },
+      {
+        "feature": "Fwd Segment Size Avg",
+        "zshift": 2.123215607741074
+      },
+      {
+        "feature": "Subflow Fwd Bytes",
+        "zshift": 1.5122786847712473
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "zshift": 1.4962410445682803
+      },
+      {
+        "feature": "Packet Length Variance",
+        "zshift": 1.4846521710683802
+      },
+      {
+        "feature": "Fwd Packet Length Std",
+        "zshift": 1.4245476917569935
+      },
+      {
+        "feature": "Protocol",
+        "zshift": 1.3077308011824658
+      },
+      {
+        "feature": "FIN Flag Count",
+        "zshift": 1.3007673263795492
+      },
+      {
+        "feature": "SYN Flag Count",
+        "zshift": 1.2915643745294247
+      },
+      {
+        "feature": "Packet Length Min",
+        "zshift": 1.0197616388986903
+      },
+      {
+        "feature": "Total Length of Fwd Packet",
+        "zshift": 0.9718468354627231
+      },
+      {
+        "feature": "Bwd Packet Length Min",
+        "zshift": 0.9121182004488206
+      },
+      {
+        "feature": "Fwd Packet Length Min",
+        "zshift": 0.7272021917806186
+      },
+      {
+        "feature": "Fwd Seg Size Min",
+        "zshift": 0.7024912481473898
+      },
+      {
+        "feature": "Bwd Packet Length Mean",
+        "zshift": 0.6204187069051144
+      },
+      {
+        "feature": "Bwd Segment Size Avg",
+        "zshift": 0.6204187069050742
+      },
+      {
+        "feature": "Fwd Packet/Bulk Avg",
+        "zshift": 0.5814822340071581
+      },
+      {
+        "feature": "Subflow Bwd Bytes",
+        "zshift": 0.5700655599417549
+      },
+      {
+        "feature": "Bwd Packet Length Max",
+        "zshift": 0.4757679240306926
+      }
+    ]
+  },
+  {
+    "attack": "Web Attack - Brute Force",
+    "benign_rows": 300000,
+    "attack_rows": 73,
+    "top_shifted_features": [
+      {
+        "feature": "Fwd PSH Flags",
+        "zshift": 16.9629942739981
+      },
+      {
+        "feature": "Fwd Act Data Pkts",
+        "zshift": 13.629595451224555
+      },
+      {
+        "feature": "Fwd Header Length",
+        "zshift": 8.111068059338274
+      },
+      {
+        "feature": "Total Length of Fwd Packet",
+        "zshift": 6.461932859814357
+      },
+      {
+        "feature": "PSH Flag Count",
+        "zshift": 4.936684366840889
+      },
+      {
+        "feature": "Bwd Header Length",
+        "zshift": 3.257846077573674
+      },
+      {
+        "feature": "Bwd PSH Flags",
+        "zshift": 2.5926510219839396
+      },
+      {
+        "feature": "Subflow Fwd Bytes",
+        "zshift": 2.18636691351571
+      },
+      {
+        "feature": "Fwd Seg Size Min",
+        "zshift": 2.088203111462994
+      },
+      {
+        "feature": "Down/Up Ratio",
+        "zshift": 1.8432923101494998
+      },
+      {
+        "feature": "Bwd Packet Length Mean",
+        "zshift": 1.630544173704755
+      },
+      {
+        "feature": "Bwd Segment Size Avg",
+        "zshift": 1.6305441737045678
+      },
+      {
+        "feature": "Fwd Packet Length Mean",
+        "zshift": 1.5310937511617648
+      },
+      {
+        "feature": "Fwd Segment Size Avg",
+        "zshift": 1.5310937511617648
+      },
+      {
+        "feature": "FWD Init Win Bytes",
+        "zshift": 1.3787194551191257
+      },
+      {
+        "feature": "Packet Length Mean",
+        "zshift": 1.3749215193955
+      },
+      {
+        "feature": "Average Packet Size",
+        "zshift": 1.3749215193951807
+      },
+      {
+        "feature": "Protocol",
+        "zshift": 1.3077308011824658
+      },
+      {
+        "feature": "FIN Flag Count",
+        "zshift": 1.3007673263795492
+      },
+      {
+        "feature": "SYN Flag Count",
+        "zshift": 1.2915643745294247
+      }
+    ]
+  },
+  {
+    "attack": "Infiltration - Portscan",
+    "benign_rows": 300000,
+    "attack_rows": 71767,
+    "top_shifted_features": [
+      {
+        "feature": "Subflow Fwd Packets",
+        "zshift": 3.8331886926868513
+      },
+      {
+        "feature": "Flow Packets/s",
+        "zshift": 3.7875604254009616
+      },
+      {
+        "feature": "Fwd Packets/s",
+        "zshift": 3.7303461486886906
+      },
+      {
+        "feature": "Bwd RST Flags",
+        "zshift": 3.7230295615536613
+      },
+      {
+        "feature": "URG Flag Count",
+        "zshift": 2.3946123073903207
+      },
+      {
+        "feature": "Bwd Packets/s",
+        "zshift": 1.632114843670865
+      },
+      {
+        "feature": "Down/Up Ratio",
+        "zshift": 1.4804039949563255
+      },
+      {
+        "feature": "Protocol",
+        "zshift": 1.3016220393307334
+      },
+      {
+        "feature": "Fwd Seg Size Min",
+        "zshift": 1.166776582093808
+      },
+      {
+        "feature": "SYN Flag Count",
+        "zshift": 1.1388399620559957
+      },
+      {
+        "feature": "Packet Length Min",
+        "zshift": 1.0082347373104217
+      },
+      {
+        "feature": "Bwd Packet Length Min",
+        "zshift": 0.9103779053386699
+      },
+      {
+        "feature": "RST Flag Count",
+        "zshift": 0.8371832069413548
+      },
+      {
+        "feature": "Packet Length Mean",
+        "zshift": 0.7871055797752926
+      },
+      {
+        "feature": "Average Packet Size",
+        "zshift": 0.7871055797751703
+      },
+      {
+        "feature": "Fwd Packet Length Min",
+        "zshift": 0.7191253071676488
+      },
+      {
+        "feature": "Bwd Packet Length Mean",
+        "zshift": 0.7179329529576051
+      },
+      {
+        "feature": "Bwd Segment Size Avg",
+        "zshift": 0.7179329529575551
+      },
+      {
+        "feature": "Packet Length Std",
+        "zshift": 0.6739376715880828
+      },
+      {
+        "feature": "Subflow Bwd Bytes",
+        "zshift": 0.645955811522685
+      }
+    ]
+  }
+]
