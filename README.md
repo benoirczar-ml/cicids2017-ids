@@ -42,6 +42,11 @@ Drift holdout (LogReg, mixed test with benign + held‑out attack):
 - Web Attack Brute Force: ROC‑AUC 0.039, PR‑AUC 0.317 (precision/recall 0.0)
 - Infiltration Portscan: ROC‑AUC 0.899, PR‑AUC 0.899 (precision 0.992, recall 0.556)
 
+Drift robustness (XGBoost + threshold tuning on in‑distribution val):
+- Botnet: ROC‑AUC 0.996, PR‑AUC 0.996 but recall 0.0 at thresholds tuned on val
+- Web Attack Brute Force: precision 1.0, recall 0.329 at threshold 0.5
+- Infiltration Portscan: precision ~0.9999, recall 0.551 at best‑F1 threshold (val‑tuned)
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)
