@@ -60,6 +60,11 @@ Protocol‑segmented benign thresholds:
 - Web Attack Brute Force and Portscan stayed strong.
 - Botnet still collapsed (protocol thresholds did not help). Indicates need for open‑set/anomaly handling for this class.
 
+Anomaly (benign‑only) baselines:
+- PCA reconstruction error: very low recall across holdout attacks (not sufficient).
+- Mahalanobis distance: similarly low recall (not sufficient).
+Next: try a GPU autoencoder (benign‑only) and combine with classifier score fusion.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)
