@@ -56,6 +56,10 @@ Feature stability lab:
 - Computed benign vs attack z‑shift per feature (report saved).
 - A “stable subset” of 17 shared‑shift features **hurt** drift detection (Botnet/WebBF recall dropped to 0). We do not keep this subset.
 
+Protocol‑segmented benign thresholds:
+- Web Attack Brute Force and Portscan stayed strong.
+- Botnet still collapsed (protocol thresholds did not help). Indicates need for open‑set/anomaly handling for this class.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)

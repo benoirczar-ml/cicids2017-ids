@@ -1,0 +1,146 @@
+[
+  {
+    "holdout_attack": "Botnet",
+    "holdout_rows": 736,
+    "test_rows": 1472,
+    "train_rows": 400000,
+    "val_benign_rows": 113082,
+    "best_iteration": 115,
+    "thresholds": {
+      "global_fpr_1e-3": 0.010235937312245369,
+      "protocol_fpr_1e-3": {
+        "6": 0.019778795540332794,
+        "17": 0.0012248748680576682
+      }
+    },
+    "test_metrics@0.5": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 736,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    },
+    "test_metrics@global_fpr_1e-3": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 717,
+      "tp": 19,
+      "precision": 1.0,
+      "recall": 0.025815216824412346,
+      "f1": 0.05033112317323685,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    },
+    "test_metrics@protocol_fpr_1e-3": {
+      "tn": 735,
+      "fp": 1,
+      "fn": 736,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    }
+  },
+  {
+    "holdout_attack": "Web Attack - Brute Force",
+    "holdout_rows": 73,
+    "test_rows": 146,
+    "train_rows": 400000,
+    "val_benign_rows": 113046,
+    "best_iteration": 89,
+    "thresholds": {
+      "global_fpr_1e-3": 0.031288567930459976,
+      "protocol_fpr_1e-3": {
+        "6": 0.07501599192619324,
+        "17": 0.0031898438464850187
+      }
+    },
+    "test_metrics@0.5": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 49,
+      "tp": 24,
+      "precision": 1.0,
+      "recall": 0.3287671208381653,
+      "f1": 0.4948453903198242,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    },
+    "test_metrics@global_fpr_1e-3": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 1,
+      "tp": 72,
+      "precision": 1.0,
+      "recall": 0.9863013625144958,
+      "f1": 0.9931033849716187,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    },
+    "test_metrics@protocol_fpr_1e-3": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 1,
+      "tp": 72,
+      "precision": 1.0,
+      "recall": 0.9863013625144958,
+      "f1": 0.9931033849716187,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    }
+  },
+  {
+    "holdout_attack": "Infiltration - Portscan",
+    "holdout_rows": 50000,
+    "test_rows": 100000,
+    "train_rows": 400000,
+    "val_benign_rows": 117042,
+    "best_iteration": 102,
+    "thresholds": {
+      "global_fpr_1e-3": 0.007154179271310568,
+      "protocol_fpr_1e-3": {
+        "6": 0.015604179352521896,
+        "17": 6.920717714820057e-05
+      }
+    },
+    "test_metrics@0.5": {
+      "tn": 49997,
+      "fp": 3,
+      "fn": 27126,
+      "tp": 22874,
+      "precision": 0.9998688697814941,
+      "recall": 0.4574800133705139,
+      "f1": 0.6277426481246948,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    },
+    "test_metrics@global_fpr_1e-3": {
+      "tn": 49961,
+      "fp": 39,
+      "fn": 828,
+      "tp": 49172,
+      "precision": 0.9992074966430664,
+      "recall": 0.9834399819374084,
+      "f1": 0.9912610650062561,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    },
+    "test_metrics@protocol_fpr_1e-3": {
+      "tn": 49938,
+      "fp": 62,
+      "fn": 822,
+      "tp": 49178,
+      "precision": 0.9987408518791199,
+      "recall": 0.9835600256919861,
+      "f1": 0.9910922646522522,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    }
+  }
+]
