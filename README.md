@@ -85,6 +85,11 @@ FAISS GPU kNN anomaly (separate env `/srv/work/envs/faiss-gpu-py310`):
 - Portscan recall ~0.144 at FPR 1e‑3.
 - WebBF still 0 at strict FPR.
 
+Windowed aggregation experiments:
+- We built 1s/5s windows using the HF parquet `Timestamp`, but it only stores `MM:SS.s` (no date/hour).
+- As a result, windows are not true temporal slices across the day, and Botnet recall stays at 0 in windowed FAISS runs.
+- Conclusion: to do real temporal windows, we need the full original CSVs with real timestamps.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)
