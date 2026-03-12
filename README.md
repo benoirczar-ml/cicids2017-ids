@@ -63,7 +63,14 @@ Protocol‑segmented benign thresholds:
 Anomaly (benign‑only) baselines:
 - PCA reconstruction error: very low recall across holdout attacks (not sufficient).
 - Mahalanobis distance: similarly low recall (not sufficient).
-Next: try a GPU autoencoder (benign‑only) and combine with classifier score fusion.
+Autoencoder (benign‑only):
+- Still low recall on Botnet (≈0.02–0.04 at FPR 1e‑3).
+- Weak on WebBF unless fused.
+
+Fusion (AE + XGB, benign FPR thresholds):
+- WebBF: recall ≈0.986 at FPR 1e‑3 (precision 1.0).
+- Portscan: recall ≈0.982 at FPR 1e‑3 (precision ~0.9991).
+- Botnet: recall ≈0.023 at FPR 1e‑3 (still poor).
 
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
