@@ -1,9 +1,9 @@
 Protocol
 Flow Duration
-Total Fwd Packet
-Total Bwd packets
-Total Length of Fwd Packet
-Total Length of Bwd Packet
+Total Fwd Packets
+Total Backward Packets
+Total Length of Fwd Packets
+Total Length of Bwd Packets
 Fwd Packet Length Max
 Fwd Packet Length Min
 Fwd Packet Length Mean
@@ -32,14 +32,12 @@ Fwd PSH Flags
 Bwd PSH Flags
 Fwd URG Flags
 Bwd URG Flags
-Fwd RST Flags
-Bwd RST Flags
 Fwd Header Length
 Bwd Header Length
 Fwd Packets/s
 Bwd Packets/s
-Packet Length Min
-Packet Length Max
+Min Packet Length
+Max Packet Length
 Packet Length Mean
 Packet Length Std
 Packet Length Variance
@@ -49,26 +47,27 @@ RST Flag Count
 PSH Flag Count
 ACK Flag Count
 URG Flag Count
-CWR Flag Count
+CWE Flag Count
 ECE Flag Count
 Down/Up Ratio
 Average Packet Size
-Fwd Segment Size Avg
-Bwd Segment Size Avg
-Fwd Bytes/Bulk Avg
-Fwd Packet/Bulk Avg
-Fwd Bulk Rate Avg
-Bwd Bytes/Bulk Avg
-Bwd Packet/Bulk Avg
-Bwd Bulk Rate Avg
+Avg Fwd Segment Size
+Avg Bwd Segment Size
+Fwd Header Length.1
+Fwd Avg Bytes/Bulk
+Fwd Avg Packets/Bulk
+Fwd Avg Bulk Rate
+Bwd Avg Bytes/Bulk
+Bwd Avg Packets/Bulk
+Bwd Avg Bulk Rate
 Subflow Fwd Packets
 Subflow Fwd Bytes
 Subflow Bwd Packets
 Subflow Bwd Bytes
-FWD Init Win Bytes
-Bwd Init Win Bytes
-Fwd Act Data Pkts
-Fwd Seg Size Min
+Init_Win_bytes_forward
+Init_Win_bytes_backward
+act_data_pkt_fwd
+min_seg_size_forward
 Active Mean
 Active Std
 Active Max
@@ -77,7 +76,3 @@ Idle Mean
 Idle Std
 Idle Max
 Idle Min
-ICMP Code
-ICMP Type
-Total TCP Flow Time
-Attempted Category

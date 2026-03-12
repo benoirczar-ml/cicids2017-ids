@@ -3,10 +3,14 @@
 Recruiter‑grade IDS project using CICIDS2017 with a **full GPU + Parquet** pipeline.
 
 ## Dataset
-We use the CICIDS2017 dataset (UNB/CIC). The current run uses the Hugging Face parquet conversion (`bvk/CICIDS-2017`) for fast GPU‑first iteration. This is a convenient subset/packaging of the original CSVs, so results are not directly comparable to the full competition setup.
+We use the CICIDS2017 dataset (UNB/CIC). The current run uses the Hugging Face parquet conversion
+`bvsam/cic-ids-2017` (traffic_labels) because it includes true timestamps and IPs for time‑aware
+windowing. We keep the earlier `bvk/CICIDS-2017` conversion for fast iteration, but it only stores
+`MM:SS.s` in `Timestamp`, so it cannot support real temporal splits.
 
 Paths:
-- Raw parquet: `/srv/work/datasets/cicids2017/parquet/hf-bvk`
+- Raw parquet (timestamped): `/srv/work/datasets/cicids2017/raw/hf_bvsam/traffic_labels`
+- Partitioned raw parquet: `/srv/work/datasets/cicids2017/processed/partitioned_raw`
 - Processed parquet: `/srv/work/datasets/cicids2017/processed/cicids2017_clean.parquet`
 
 ## Rules
@@ -25,17 +29,20 @@ micromamba activate /srv/work/envs/cicids2017-rapids
 4. `scripts/04_train_xgb.py` → XGBoost GPU baseline
 5. `scripts/05_drift_holdout.py` → attack holdout drift check
 6. `scripts/06_train_torch_mlp.py` → torch MLP on GPU (sampled for VRAM)
+7. `scripts/26_prepare_dataset_bvsam.py` → rebuild clean parquet from timestamped HF source
+8. `scripts/27_window_aggregate_ts_v1.py` → 1s windows using real timestamps
+9. `scripts/28_faiss_knn_windows_ts_v1.py` → FAISS kNN on true‑timestamp windows
+10. `scripts/29_build_partitioned_raw_parquet.py` → partition raw parquet for GPU‑friendly ingestion
 
 ## Results (current)
-LogReg (full dataset):
-- precision 0.9823, recall 0.9867, f1 0.9845, roc_auc 0.9986, pr_auc 0.9962
+LogReg (CPU baseline, 800k stratified sample; GPU blocked by NVRTC fp8 headers):
+- precision 0.8993, recall 0.8633, f1 0.8809, roc_auc 0.9862, pr_auc 0.9684
 
 XGBoost (sampled 500k train / 200k val / 200k test):
-- precision 0.99984, recall 0.99976, f1 0.99980, roc_auc 0.9999999, pr_auc 0.9999998
+- precision 0.9966, recall 0.9992, f1 0.9979, roc_auc 0.999961, pr_auc 0.999917
 
 Torch MLP (sampled 500k / 200k / 200k):
-- precision 0.99619, recall 0.99852, f1 0.99735, roc_auc 0.9998868, pr_auc 0.9997905
-- calibrated (temperature 0.9249, threshold 0.72): precision 0.99813, recall 0.99785, f1 0.99799
+- precision 0.8821, recall 0.9866, f1 0.9315, roc_auc 0.99623, pr_auc 0.99064
 
 Drift holdout (LogReg, mixed test with benign + held‑out attack):
 - Botnet: ROC‑AUC 0.815, PR‑AUC 0.707 (precision/recall 0.0)
@@ -85,10 +92,13 @@ FAISS GPU kNN anomaly (separate env `/srv/work/envs/faiss-gpu-py310`):
 - Portscan recall ~0.144 at FPR 1e‑3.
 - WebBF still 0 at strict FPR.
 
-Windowed aggregation experiments:
-- We built 1s/5s windows using the HF parquet `Timestamp`, but it only stores `MM:SS.s` (no date/hour).
-- As a result, windows are not true temporal slices across the day, and Botnet recall stays at 0 in windowed FAISS runs.
-- Conclusion: to do real temporal windows, we need the full original CSVs with real timestamps.
+Windowed aggregation (true timestamps from `bvsam/cic-ids-2017`):
+- 1s windows by `Source IP` and real `Timestamp`.
+- FAISS kNN (benign‑only):
+  - Bot: recall 0.003 @ FPR 1e‑3 (ROC‑AUC 0.812, PR‑AUC 0.772)
+  - Web Attack Brute Force: recall 0.0 @ FPR 1e‑3 (ROC‑AUC 0.952, PR‑AUC 0.900)
+  - PortScan: recall 0.407 @ FPR 1e‑3 (precision ~1.0)
+  - Infiltration: recall 0.714 @ FPR 1e‑3 (precision ~1.0)
 
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)

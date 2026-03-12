@@ -1,6 +1,6 @@
 {
-  "val_accuracy": 0.9911490939567487,
-  "test_accuracy": 0.9911586178872113,
-  "rows": 2099971,
-  "features": 83
+  "val_accuracy": 0.93695,
+  "test_accuracy": 0.9365,
+  "rows": 3119345,
+  "features": 78
 }

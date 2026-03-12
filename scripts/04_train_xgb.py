@@ -3,11 +3,52 @@ import sys
 import json
 import cudf
 import cupy as cp
+import numpy as np
 import xgboost as xgb
 from cuml.model_selection import train_test_split
 
-sys.path.append("/srv/work/projects/cicids2017-ids")
-from src.metrics_gpu import confusion_matrix_binary, precision_recall_f1, roc_auc, average_precision
+def confusion_matrix_binary_np(y_true, y_pred):
+    tp = np.sum((y_true == 1) & (y_pred == 1))
+    tn = np.sum((y_true == 0) & (y_pred == 0))
+    fp = np.sum((y_true == 0) & (y_pred == 1))
+    fn = np.sum((y_true == 1) & (y_pred == 0))
+    return tn, fp, fn, tp
+
+
+def precision_recall_f1_np(tn, fp, fn, tp):
+    precision = tp / (tp + fp + 1e-12)
+    recall = tp / (tp + fn + 1e-12)
+    f1 = 2 * precision * recall / (precision + recall + 1e-12)
+    return precision, recall, f1
+
+
+def roc_auc_np(y_true, y_score):
+    pos = y_true.sum()
+    neg = y_true.size - pos
+    if pos == 0 or neg == 0:
+        return float("nan")
+    idx = np.argsort(-y_score)
+    y_sorted = y_true[idx]
+    tps = np.cumsum(y_sorted)
+    fps = np.cumsum(1 - y_sorted)
+    tpr = tps / pos
+    fpr = fps / neg
+    tpr = np.concatenate([[0.0], tpr])
+    fpr = np.concatenate([[0.0], fpr])
+    return float(np.trapezoid(tpr, fpr))
+
+
+def average_precision_np(y_true, y_score):
+    pos = y_true.sum()
+    if pos == 0:
+        return float("nan")
+    idx = np.argsort(-y_score)
+    y_sorted = y_true[idx]
+    tps = np.cumsum(y_sorted)
+    fps = np.cumsum(1 - y_sorted)
+    precision = tps / (tps + fps + 1e-12)
+    ap = (precision * y_sorted).sum() / pos
+    return float(ap)
 
 DATA_PATH = "/srv/work/datasets/cicids2017/processed/cicids2017_clean.parquet"
 REPORT_DIR = "/srv/work/projects/cicids2017-ids/reports"
@@ -84,29 +125,27 @@ bst = xgb.train(
 )
 
 probs = bst.predict(test_dm)
-probs = cp.asarray(probs)
-preds = (probs >= 0.5).astype(cp.int32)
+probs = cp.asnumpy(cp.asarray(probs))
+preds = (probs >= 0.5).astype(np.int32)
 
-y_true = y_test.to_cupy()
+y_true = cp.asnumpy(y_test.to_cupy())
 
-# Metrics
-
-tn, fp, fn, tp = confusion_matrix_binary(y_true, preds)
-precision, recall, f1 = precision_recall_f1(tn, fp, fn, tp)
-roc = roc_auc(y_true, probs)
-ap = average_precision(y_true, probs)
+tn, fp, fn, tp = confusion_matrix_binary_np(y_true, preds)
+precision, recall, f1 = precision_recall_f1_np(tn, fp, fn, tp)
+roc = roc_auc_np(y_true, probs)
+ap = average_precision_np(y_true, probs)
 
 report = {
     "best_iteration": int(bst.best_iteration),
     "train_rows": int(len(y_train)),
     "val_rows": int(len(y_val)),
     "test_rows": int(len(y_test)),
-    "tn": tn, "fp": fp, "fn": fn, "tp": tp,
-    "precision": precision,
-    "recall": recall,
-    "f1": f1,
-    "roc_auc": roc,
-    "pr_auc": ap,
+    "tn": int(tn), "fp": int(fp), "fn": int(fn), "tp": int(tp),
+    "precision": float(precision),
+    "recall": float(recall),
+    "f1": float(f1),
+    "roc_auc": float(roc),
+    "pr_auc": float(ap),
 }
 
 with open(os.path.join(REPORT_DIR, "xgb_metrics.json"), "w") as f:
