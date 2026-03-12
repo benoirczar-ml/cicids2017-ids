@@ -1,0 +1,101 @@
+[
+  {
+    "holdout_attack": "Botnet",
+    "holdout_rows": 736,
+    "test_rows": 1472,
+    "benign_train_rows": 200000,
+    "benign_val_rows": 50000,
+    "thresholds": {
+      "fpr_1e-3": 14.8043212890625,
+      "fpr_1e-4": 241.9915771484375
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 734,
+      "fp": 2,
+      "fn": 693,
+      "tp": 43,
+      "precision": 0.9555555555555343,
+      "recall": 0.05842391304347818,
+      "f1": 0.11011523687569136,
+      "roc_auc": 0.8006058730784733,
+      "pr_auc": 0.688168466091156
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 726,
+      "tp": 10,
+      "precision": 0.9999999999999,
+      "recall": 0.013586956521739111,
+      "f1": 0.026809651474504304,
+      "roc_auc": 0.8006058730784733,
+      "pr_auc": 0.688168466091156
+    }
+  },
+  {
+    "holdout_attack": "Web Attack - Brute Force",
+    "holdout_rows": 73,
+    "test_rows": 146,
+    "benign_train_rows": 200000,
+    "benign_val_rows": 50000,
+    "thresholds": {
+      "fpr_1e-3": 14.8043212890625,
+      "fpr_1e-4": 241.9915771484375
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 72,
+      "fp": 1,
+      "fn": 73,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9863013699650764,
+      "pr_auc": 0.9467394351959229
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 73,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9863013699650764,
+      "pr_auc": 0.9467394351959229
+    }
+  },
+  {
+    "holdout_attack": "Infiltration - Portscan",
+    "holdout_rows": 50000,
+    "test_rows": 100000,
+    "benign_train_rows": 200000,
+    "benign_val_rows": 50000,
+    "thresholds": {
+      "fpr_1e-3": 14.8043212890625,
+      "fpr_1e-4": 241.9915771484375
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 49961,
+      "fp": 39,
+      "fn": 42801,
+      "tp": 7199,
+      "precision": 0.9946117712075158,
+      "recall": 0.14398,
+      "f1": 0.25154617561737574,
+      "roc_auc": 0.9951117240419982,
+      "pr_auc": 0.9923967719078064
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 49997,
+      "fp": 3,
+      "fn": 49993,
+      "tp": 7,
+      "precision": 0.69999999999993,
+      "recall": 0.00014,
+      "f1": 0.0002799440111973606,
+      "roc_auc": 0.9951117240419982,
+      "pr_auc": 0.9923967719078064
+    }
+  }
+]

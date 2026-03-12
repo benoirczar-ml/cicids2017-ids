@@ -80,6 +80,11 @@ Notes:
 - cuML IsolationForest not available in this build.
 - cuML kNN failed due to CUDA NVRTC compile errors (fp8 headers). We need a CUDA/toolkit fix to use it.
 
+FAISS GPU kNN anomaly (separate env `/srv/work/envs/faiss-gpu-py310`):
+- Botnet recall ~0.058 at FPR 1e‑3 (better, still low).
+- Portscan recall ~0.144 at FPR 1e‑3.
+- WebBF still 0 at strict FPR.
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)
