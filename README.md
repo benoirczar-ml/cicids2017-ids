@@ -47,6 +47,11 @@ Drift robustness (XGBoost + threshold tuning on in‑distribution val):
 - Web Attack Brute Force: precision 1.0, recall 0.329 at threshold 0.5
 - Infiltration Portscan: precision ~0.9999, recall 0.551 at best‑F1 threshold (val‑tuned)
 
+Benign‑only thresholding (no attack leakage, thresholds set by benign FPR):
+- Web Attack Brute Force: recall 0.986 at FPR 1e‑3 (precision 1.0)
+- Infiltration Portscan: recall 0.983 at FPR 1e‑3 (precision ~0.9992)
+- Botnet: recall still low at FPR 1e‑3 (drift in score scale)
+
 ## Next steps
 - Improve drift robustness (feature filters + calibration + class‑wise thresholds)
 - Time‑aware split (when using full CSVs with true timestamps)

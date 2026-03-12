@@ -1,0 +1,137 @@
+[
+  {
+    "holdout_attack": "Botnet",
+    "holdout_rows": 736,
+    "test_rows": 1472,
+    "train_rows": 400000,
+    "val_benign_rows": 113082,
+    "best_iteration": 115,
+    "thresholds": {
+      "fpr_1e-3": 0.010235937312245369,
+      "fpr_1e-4": 0.11429832875728607
+    },
+    "test_metrics@0.5": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 736,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 717,
+      "tp": 19,
+      "precision": 1.0,
+      "recall": 0.025815216824412346,
+      "f1": 0.05033112317323685,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 736,
+      "fp": 0,
+      "fn": 736,
+      "tp": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.9963595867156982,
+      "pr_auc": 0.9962619543075562
+    }
+  },
+  {
+    "holdout_attack": "Web Attack - Brute Force",
+    "holdout_rows": 73,
+    "test_rows": 146,
+    "train_rows": 400000,
+    "val_benign_rows": 113046,
+    "best_iteration": 89,
+    "thresholds": {
+      "fpr_1e-3": 0.031288567930459976,
+      "fpr_1e-4": 0.3511205315589905
+    },
+    "test_metrics@0.5": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 49,
+      "tp": 24,
+      "precision": 1.0,
+      "recall": 0.3287671208381653,
+      "f1": 0.4948453903198242,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 1,
+      "tp": 72,
+      "precision": 1.0,
+      "recall": 0.9863013625144958,
+      "f1": 0.9931033849716187,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 73,
+      "fp": 0,
+      "fn": 16,
+      "tp": 57,
+      "precision": 1.0,
+      "recall": 0.7808219194412231,
+      "f1": 0.8769230842590332,
+      "roc_auc": 0.9999999403953552,
+      "pr_auc": 1.0
+    }
+  },
+  {
+    "holdout_attack": "Infiltration - Portscan",
+    "holdout_rows": 50000,
+    "test_rows": 100000,
+    "train_rows": 400000,
+    "val_benign_rows": 117042,
+    "best_iteration": 102,
+    "thresholds": {
+      "fpr_1e-3": 0.007154179271310568,
+      "fpr_1e-4": 0.12337179481983185
+    },
+    "test_metrics@0.5": {
+      "tn": 49997,
+      "fp": 3,
+      "fn": 27126,
+      "tp": 22874,
+      "precision": 0.9998688697814941,
+      "recall": 0.4574800133705139,
+      "f1": 0.6277426481246948,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    },
+    "test_metrics@fpr_1e-3": {
+      "tn": 49961,
+      "fp": 39,
+      "fn": 828,
+      "tp": 49172,
+      "precision": 0.9992074966430664,
+      "recall": 0.9834399819374084,
+      "f1": 0.9912610650062561,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    },
+    "test_metrics@fpr_1e-4": {
+      "tn": 49994,
+      "fp": 6,
+      "fn": 1087,
+      "tp": 48913,
+      "precision": 0.9998773336410522,
+      "recall": 0.9782599806785583,
+      "f1": 0.9889506101608276,
+      "roc_auc": 0.9988892078399658,
+      "pr_auc": 0.9991174936294556
+    }
+  }
+]
