@@ -35,6 +35,7 @@ XGBoost (sampled 500k train / 200k val / 200k test):
 
 Torch MLP (sampled 500k / 200k / 200k):
 - precision 0.99619, recall 0.99852, f1 0.99735, roc_auc 0.9998868, pr_auc 0.9997905
+- calibrated (temperature 0.9249, threshold 0.72): precision 0.99813, recall 0.99785, f1 0.99799
 
 Drift holdout (LogReg, mixed test with benign + held‑out attack):
 - Botnet: ROC‑AUC 0.815, PR‑AUC 0.707 (precision/recall 0.0)
